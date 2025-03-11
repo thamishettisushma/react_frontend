@@ -1,0 +1,10 @@
+@media (max-width: 350px) {
+    .radix-popper-content-wrapper {
+      width: 160px !important;
+      min-width: 140px !important;
+      max-width: 180px !important;
+      padding: 8px !important;
+      text-align: right !important;
+    }
+  }
+  
