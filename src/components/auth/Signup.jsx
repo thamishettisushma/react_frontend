@@ -382,7 +382,7 @@ const Signup = () => {
     const { loading, user } = useSelector(store => store.auth);
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const apiUrl = import.meta.env.VITE_API_URL
+
 
     const changeEventHandler = (e) => {
         setInput({ ...input, [e.target.name]: e.target.value });
@@ -406,7 +406,7 @@ const Signup = () => {
 
         try {
             dispatch(setLoading(true));
-            const res = await axios.post(`${apiUrl}/api/v1/user/register`, formData, {
+            const res = await axios.post(`${USER_API_END_POINT}/register`, formData, {
                 headers: { 'Content-Type': "multipart/form-data" },
                 withCredentials: true,
             });
@@ -476,7 +476,12 @@ const Signup = () => {
                             type="text"
                             value={input.phoneNumber}
                             name="phoneNumber"
-                            onChange={changeEventHandler}
+                            // onChange={changeEventHandler}
+                            onChange={(e) => {
+                                if (e.target.value.length <= 10) {
+                                    changeEventHandler(e);
+                                }
+                            }}
                             placeholder="Enter your phone number"
                             required
                             className="dark:bg-gray-700 dark:text-white"

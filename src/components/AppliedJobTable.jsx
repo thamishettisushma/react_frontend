@@ -164,7 +164,6 @@ import React from "react";
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
   TableHead,
   TableHeader,
@@ -179,9 +178,6 @@ const AppliedJobTable = () => {
   return (
     <div className="w-full overflow-x-auto px-4">
       <Table className="min-w-full bg-white dark:bg-gray-800 dark:text-white border border-gray-200 dark:border-gray-700 rounded-lg">
-        <TableCaption className="text-lg font-semibold dark:text-gray-300">
-          A list of your applied jobs
-        </TableCaption>
         <TableHeader>
           <TableRow className="bg-gray-100 dark:bg-gray-700">
             <TableHead className="px-4 py-2">Date</TableHead>
