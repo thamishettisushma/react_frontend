@@ -392,36 +392,82 @@ const Signup = () => {
         setInput({ ...input, file: e.target.files?.[0] });
     };
 
+    // const submitHandler = async (e) => {
+    //     e.preventDefault();
+    //     const formData = new FormData();
+    //     formData.append("fullname", input.fullname);
+    //     formData.append("email", input.email);
+    //     formData.append("phoneNumber", input.phoneNumber);
+    //     formData.append("password", input.password);
+    //     formData.append("role", input.role);
+    //     if (input.file) {
+    //         formData.append("file", input.file);
+    //     }
+
+    //     try {
+    //         dispatch(setLoading(true));
+    //         const res = await axios.post(`${USER_API_END_POINT}/register`, formData, {
+    //             headers: { 'Content-Type': "multipart/form-data" },
+    //             withCredentials: true,
+    //         });
+    //         if (res.data.success) {
+    //             navigate("/login");
+    //             toast.success(res.data.message);
+    //         }
+    //     } catch (error) {
+    //         console.error(error);
+    //         toast.error(error.response?.data?.message || "Something went wrong.");
+    //     } finally {
+    //         dispatch(setLoading(false));
+    //     }
+    // };
+
     const submitHandler = async (e) => {
         e.preventDefault();
+    
+        // Check for missing fields
+        const requiredFields = ["fullname", "email", "phoneNumber", "password", "role"];
+        for (const field of requiredFields) {
+            if (!input[field]) {
+                toast.error(`${field} is required.`);
+                return;
+            }
+        }
+    
+        // Check if file is selected
+        if (!input.file) {
+            toast.error("Please choose a file.");
+            return;
+        }
+    
         const formData = new FormData();
         formData.append("fullname", input.fullname);
         formData.append("email", input.email);
         formData.append("phoneNumber", input.phoneNumber);
         formData.append("password", input.password);
         formData.append("role", input.role);
-        if (input.file) {
-            formData.append("file", input.file);
-        }
-
+        formData.append("file", input.file);
+    
         try {
             dispatch(setLoading(true));
             const res = await axios.post(`${USER_API_END_POINT}/register`, formData, {
                 headers: { 'Content-Type': "multipart/form-data" },
                 withCredentials: true,
             });
+    
             if (res.data.success) {
                 navigate("/login");
                 toast.success(res.data.message);
             }
         } catch (error) {
             console.error(error);
-            toast.error(error.response?.data?.message || "Something went wrong.");
+            const errorMessage = error.response?.data?.message || "An error occurred during registration.";
+            toast.error(errorMessage);
         } finally {
             dispatch(setLoading(false));
         }
     };
-
+    
     const handleKeyDown = (e) => {
         if (e.key === "Enter") {
             submitHandler(e);
