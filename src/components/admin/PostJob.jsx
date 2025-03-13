@@ -78,7 +78,9 @@ const PostJob = () => {
         >
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <Label>Title<span className="text-red-500">*</span></Label>
+              <Label>
+                Title<span className="text-red-500">*</span>
+              </Label>
               <Input
                 type="text"
                 name="title"
@@ -88,43 +90,35 @@ const PostJob = () => {
               />
             </div>
             <div>
-              <Label>Description<span className="text-red-500">*</span></Label>
-              {/* <Input
-                type="text"
+              <Label>
+                Description<span className="text-red-500">*</span>
+              </Label>
+
+              <Textarea
                 name="description"
                 value={input.description}
                 onChange={changeEventHandler}
-                className="my-1"
-              /> */}
-              <Textarea
-  name="description"
-  value={input.description}
-  onChange={changeEventHandler}
-  // className="w-full my-1 p-2 rounded-md border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:outline-none resize-none"
-  placeholder="Enter your requirements..."
-   className="my-1 h-10"
-/>
+                placeholder="Enter your requirements..."
+                className="my-1 h-10"
+              />
             </div>
             <div>
-              <Label>Requirements<span className="text-red-500">*</span></Label>
-              {/* <Input
-                type="text"
+              <Label>
+                Requirements<span className="text-red-500">*</span>
+              </Label>
+
+              <Textarea
                 name="requirements"
                 value={input.requirements}
                 onChange={changeEventHandler}
-                className="my-1"
-              /> */}
-              <Textarea
-  name="requirements"
-  value={input.requirements}
-  onChange={changeEventHandler}
-  // className="w-full my-1 p-2 rounded-md border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:outline-none resize-none"
-  placeholder="Enter your requirements..."
-   className="my-1 h-10"
-/>
+                placeholder="Enter your requirements..."
+                className="my-1 h-10"
+              />
             </div>
             <div>
-              <Label>Salary(LPA)<span className="text-red-500">*</span></Label>
+              <Label>
+                Salary(LPA)<span className="text-red-500">*</span>
+              </Label>
               <Input
                 type="text"
                 name="salary"
@@ -134,18 +128,14 @@ const PostJob = () => {
               />
             </div>
             <div>
-              {/* <Label>Location<span className="text-red-500">*</span></Label>
-              <Input
-                type="text"
-                name="location"
-                value={input.location}
-                onChange={changeEventHandler}
-                className="my-1"
-              /> */}
-               <Label>
+              <Label>
                 Location<span className="text-red-500">*</span>
               </Label>
-              <Select onValueChange={(value) => setInput({ ...input, location: value })}>
+              <Select
+                onValueChange={(value) =>
+                  setInput({ ...input, location: value })
+                }
+              >
                 <SelectTrigger className="w-full my-1">
                   <SelectValue placeholder="Select Location" />
                 </SelectTrigger>
@@ -161,37 +151,35 @@ const PostJob = () => {
                   </SelectGroup>
                 </SelectContent>
               </Select>
-              
             </div>
             <div>
-              {/* <Label>Job Type</Label>
-              <Input
-                type="text"
-                name="jobType"
-                value={input.jobType}
-                onChange={changeEventHandler}
-                className="my-1"
-              /> */}
               <div>
-  <Label>Job Type<span className="text-red-500">*</span></Label>
-  <Select onValueChange={(value) => setInput({ ...input, jobType: value })}>
-    <SelectTrigger className="w-full my-1">
-      <SelectValue placeholder="Select Job Type" />
-    </SelectTrigger>
-    <SelectContent>
-      <SelectGroup>
-        <SelectItem value="full-time">Full Time</SelectItem>
-        <SelectItem value="part-time">Part Time</SelectItem>
-        <SelectItem value="internship">Internship</SelectItem>
-        <SelectItem value="contract">Contract Based</SelectItem>
-      </SelectGroup>
-    </SelectContent>
-  </Select>
-</div>
-
+                <Label>
+                  Job Type<span className="text-red-500">*</span>
+                </Label>
+                <Select
+                  onValueChange={(value) =>
+                    setInput({ ...input, jobType: value })
+                  }
+                >
+                  <SelectTrigger className="w-full my-1">
+                    <SelectValue placeholder="Select Job Type" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectGroup>
+                      <SelectItem value="full-time">Full Time</SelectItem>
+                      <SelectItem value="part-time">Part Time</SelectItem>
+                      <SelectItem value="internship">Internship</SelectItem>
+                      <SelectItem value="contract">Contract Based</SelectItem>
+                    </SelectGroup>
+                  </SelectContent>
+                </Select>
+              </div>
             </div>
             <div>
-              <Label>Experience Level<span className="text-red-500">*</span></Label>
+              <Label>
+                Experience Level<span className="text-red-500">*</span>
+              </Label>
               <Input
                 type="text"
                 name="experience"
@@ -201,7 +189,9 @@ const PostJob = () => {
               />
             </div>
             <div>
-              <Label>No of Positions<span className="text-red-500">*</span></Label>
+              <Label>
+                No of Positions<span className="text-red-500">*</span>
+              </Label>
               <Input
                 type="text"
                 name="position"
@@ -212,7 +202,9 @@ const PostJob = () => {
             </div>
             {companies.length > 0 && (
               <div className="col-span-1 sm:col-span-2">
-                <Label>Select a Company<span className="text-red-500">*</span></Label>
+                <Label>
+                  Select a Company<span className="text-red-500">*</span>
+                </Label>
                 <Select onValueChange={selectChangeHandler}>
                   <SelectTrigger className="w-full my-1">
                     <SelectValue placeholder="Select a Company" />
@@ -220,7 +212,10 @@ const PostJob = () => {
                   <SelectContent>
                     <SelectGroup>
                       {companies.map((company) => (
-                        <SelectItem key={company._id} value={company.name.toLowerCase()}>
+                        <SelectItem
+                          key={company._id}
+                          value={company.name.toLowerCase()}
+                        >
                           {company.name}
                         </SelectItem>
                       ))}

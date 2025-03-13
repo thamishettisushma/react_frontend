@@ -1,6 +1,12 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent, DialogHeader, DialogFooter, DialogTitle } from "@/components/ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogFooter,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -8,8 +14,7 @@ import { USER_API_END_POINT } from "@/utils/constant";
 import { toast } from "sonner";
 import { setUser } from "@/redux/authSlice";
 
-
-const LogoutDialog=()=> {
+const LogoutDialog = () => {
   const [open, setOpen] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -32,28 +37,6 @@ const LogoutDialog=()=> {
   };
 
   return (
-    // <>
-    //   <Button variant="outline" onClick={() => setOpen(true)}>
-    //     Logout
-    //   </Button>
-    //   <Dialog open={open} onOpenChange={setOpen}>
-    //     <DialogContent>
-    //       <DialogHeader>
-    //         <DialogTitle>Confirm Logout</DialogTitle>
-    //       </DialogHeader>
-    //       <p>Are you sure you want to log out?</p>
-    //       <DialogFooter>
-    //         <Button variant="outline" onClick={() => setOpen(false)}>
-    //           Cancel
-    //         </Button>
-    //         <Button variant="destructive" onClick={logoutHandler}>
-    //           Logout
-    //         </Button>
-    //       </DialogFooter>
-    //     </DialogContent>
-    //   </Dialog>
-    // </>
-
     <>
       <Button
         variant="outline"
@@ -92,6 +75,5 @@ const LogoutDialog=()=> {
       </Dialog>
     </>
   );
-}
-export default LogoutDialog
-
+};
+export default LogoutDialog;

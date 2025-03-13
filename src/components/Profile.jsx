@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "./shared/Navbar";
 import { Avatar, AvatarImage } from "./ui/avatar";
-import { Button } from "./ui/button";
 import { Contact, Mail, Pen } from "lucide-react";
 import { Badge } from "./ui/badge";
 import { Label } from "./ui/label";
@@ -53,9 +52,6 @@ const Profile = () => {
               </p>
             </div>
           </div>
-          {/* <Button onClick={() => setOpen(true)} className="shrink-0 " variant="outline">
-                <Pen className="h-5 w-5" />
-            </Button> */}
         </div>
 
         {/* Contact Info */}
