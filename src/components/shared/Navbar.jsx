@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 import { Button } from "../ui/button";
 import { Avatar, AvatarImage } from "../ui/avatar";
-import { LogOut, Menu, X, User2, Moon, Sun } from "lucide-react";
+import { LogOut, Menu, X, User2,  } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-import { useTheme } from "../context/ThemeProvider.jsx";
+// import { useTheme } from "../context/ThemeProvider.jsx";
 import LogoutDialog from "../Logoutdialoguebox";
 
 const Navbar = () => {
@@ -14,7 +14,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { theme, toggleTheme } = useTheme();
+  // const { theme, toggleTheme } = useTheme();
 
   return (
     <>
@@ -27,7 +27,7 @@ const Navbar = () => {
               Job<span className="text-[#F83002]">Bridge</span>
             </h1>
             {/* Dark Mode Toggle */}
-            <Button
+            {/* <Button
               variant="outline"
               size="icon"
               onClick={toggleTheme}
@@ -38,7 +38,7 @@ const Navbar = () => {
               ) : (
                 <Sun className="w-5 h-5" />
               )}
-            </Button>
+            </Button> */}
           </div>
 
           {/* Mobile Menu & Profile */}
@@ -159,7 +159,7 @@ const Navbar = () => {
                     </Link>
                   </li>
                   <li>
-                    <Link
+                    {/* <Link
                       to="/browse"
                       className={`hover:text-[#F83002] transition duration-300 ${
                         window.location.pathname === "/browse"
@@ -168,7 +168,7 @@ const Navbar = () => {
                       }`}
                     >
                       Browse
-                    </Link>
+                    </Link> */}
                   </li>
                 </>
               )}
@@ -185,7 +185,7 @@ const Navbar = () => {
                     />
                   </Avatar>
                 </PopoverTrigger>
-                <PopoverContent className="w-80">
+                <PopoverContent className="w-60">
                   <div>
                     <div className="flex gap-2 items-center">
                       <Avatar>
@@ -198,7 +198,7 @@ const Navbar = () => {
                         <h4 className="font-medium">{user?.fullname}</h4>
                       </div>
                     </div>
-                    <div className="flex flex-col mt-4 text-gray-600">
+                    {/* <div className="flex flex-col mt-4 text-gray-600">
                       {user.role === "student" && (
                         <Link
                           to="/profile"
@@ -211,13 +211,36 @@ const Navbar = () => {
 
                       <button
                         onClick={() => setOpen(true)}
-                        className="flex items-center gap-2 cursor-pointer dark:text-white"
+                        className="flex items-center gap-2 cursor-pointer dark:text-white ml-5"
                       >
                         <LogOut />
-
+                        
                         <LogoutDialog open={open} setOpen={setOpen} />
+
                       </button>
-                    </div>
+                      
+                    </div> */}
+                    <div className="flex flex-col mt-4 text-gray-600 space-y-3">
+  {user.role === "student" && (
+    <Link to="/profile" className="flex items-center gap-3 cursor-pointer">
+      <User2 className="w-5 h-5 shrink-0" /> {/* Ensures consistent icon size */}
+      <span className="text-base">View Profile</span>
+    </Link>
+  )}
+
+  <button
+    onClick={() => setOpen(true)}
+    className="flex items-center gap-3 cursor-pointer dark:text-white"
+  >
+    <LogOut className="w-5 h-5 shrink-0" /> {/* Added 'shrink-0' for uniformity */}
+    {/* <span className="text-base">Logout</span> */}
+  <LogoutDialog open={open} setOpen={setOpen} />
+  </button>
+
+</div>
+
+
+
                   </div>
                 </PopoverContent>
               </Popover>
@@ -260,7 +283,7 @@ const Navbar = () => {
                       </Link>
                     </li>
                     <li>
-                      <Button
+                      {/* <Button
                         variant="outline"
                         size="icon"
                         onClick={toggleTheme}
@@ -271,7 +294,7 @@ const Navbar = () => {
                         ) : (
                           <Sun className="w-5 h-5" />
                         )}
-                      </Button>
+                      </Button> */}
                     </li>
                   </>
                 ) : (
@@ -292,16 +315,16 @@ const Navbar = () => {
                         Jobs
                       </Link>
                     </li>
-                    <li>
+                    {/* <li>
                       <Link
                         to="/browse"
                         className="hover:text-[#F83002] transition duration-300"
                       >
                         Browse
                       </Link>
-                    </li>
+                    </li> */}
                     <li>
-                      <Button
+                      {/* <Button
                         variant="outline"
                         size="icon"
                         onClick={toggleTheme}
@@ -312,7 +335,7 @@ const Navbar = () => {
                         ) : (
                           <Sun className="w-5 h-5" />
                         )}
-                      </Button>
+                      </Button> */}
                     </li>
                   </>
                 )

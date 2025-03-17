@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+/* eslint-disable react/no-unescaped-entities */
+import  { useEffect, useState } from "react";
 import Navbar from "../shared/Navbar";
 import { Label } from "../ui/label";
 import { Input } from "../ui/input";
@@ -36,14 +37,12 @@ const Login = () => {
         password: "guest123",
         name: "Guest Student",
         role: "student",
-        profilePic: "/images/guest-student.png", // Default guest student image
       },
       recruiter: {
         email: "guestrecruiter@gmail.com",
         password: "guest123",
         name: "Guest Recruiter",
         role: "recruiter",
-        profilePic: "/images/guest-recruiter.png", // Default guest recruiter image
       },
     };
 
@@ -179,7 +178,7 @@ const Login = () => {
           </Button>
 
           {/* Guest Login Buttons */}
-          <div className="flex justify-between gap-2">
+          {/* <div className="flex justify-between gap-2">
             <Button
               type="button"
               className="w-1/2 bg-green-600 hover:bg-green-700 text-white"
@@ -194,7 +193,25 @@ const Login = () => {
             >
               Login as Guest Recruiter
             </Button>
-          </div>
+          </div> */}
+
+<div className="flex flex-col sm:flex-row justify-between gap-2 w-full">
+  <Button
+    type="button"
+    className="w-full sm:w-1/2 min-w-[140px] bg-green-600 hover:bg-green-700 text-white"
+    onClick={() => loginAsGuest("student")}
+  >
+    Login as Guest Student
+  </Button>
+  <Button
+    type="button"
+    className="w-full sm:w-1/2 min-w-[140px] bg-yellow-600 hover:bg-yellow-700 text-white"
+    onClick={() => loginAsGuest("recruiter")}
+  >
+    Login as Guest Recruiter
+  </Button>
+</div>
+
 
           {/* Signup Link */}
           <p className="text-sm text-center text-gray-700 dark:text-gray-300 mt-3">
